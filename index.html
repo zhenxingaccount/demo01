@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<script src="react/react.development.js"></script>
+<script src="react/react-dom.development.js"></script>
+<script src="react/babel.min.js"></script>
+</head>
+
+<body>
+<style type="text/css">
+/**{margin:0;padding:0;}*/
+body{width:1000px;margin:auto;}
+</style>
+    <!-- React 组件 -->
+    <div id="example01"></div>
+    <script type="text/babel">
+    function HelloMessage(props) {
+        return <h1>Hello World!</h1>;
+    }
+    const element = <HelloMessage />;
+    ReactDOM.render(
+        element,
+        document.getElementById('example01')
+    );
+    </script>
+
+    <hr />
+
+    <!-- 传递参数 -->
+    <div id="example02"></div>
+    <script type="text/babel">
+    function HelloMessage(props) {
+        return <h1>Hello {props.name}!</h1>;
+    }
+    const element = <HelloMessage name="World"/>;
+    ReactDOM.render(
+        element,
+        document.getElementById('example02')
+    );
+    </script>
+
+    <hr />
+
+    <!-- 复合组件 -->
+    <div id="example03"></div>
+    <script type="text/babel">
+    function Name(props)
+    {
+        return <h1>网站名称：{props.name}</h1>;
+    }
+    function Url(props)
+    {
+        return <h1>网站地址：{props.url}</h1>;
+    }
+    function Nickname(props)
+    {
+        return <h1>网站小名：{props.nickname}</h1>;
+    }
+    function App()
+    {
+        return (
+        <div>
+            <Name name="菜鸟教程" />
+            <Url url="http://www.runoob.com" />
+            <Nickname nickname="Runoob" />
+        </div>
+        );
+    }
+    ReactDOM.render(
+         <App />,
+        document.getElementById('example03')
+    );
+    </script>
+
+    <hr />
+
+
+</body>
+</html>
